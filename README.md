@@ -1,7 +1,7 @@
+# Modelado Predictivo del Rendimiento Financiero en Unidades de Negocio mediante Machine Learning
+
 ![Análisis financiero y control de gestión](img/controller_financiero.jpg)
 
-
-# 📊 Modelado Predictivo del Rendimiento Financiero en Unidades de Negocio mediante Machine Learning
 
 ## 🧭 Descripción
 
@@ -12,7 +12,11 @@ Integra información financiera, ratios y variables operativas con el objetivo d
 El sistema se concibe como una **herramienta de alerta temprana**, no como un motor de decisión automático.
 
 ---
+## 🎯 Objetivo del proyecto
 
+Desarrollar un modelo de Machine Learning capaz de identificar de forma temprana unidades de negocio con riesgo de ineficiencia financiera, a partir de información financiera, ratios y variables operativas, con un enfoque de apoyo a la toma de decisiones.
+
+---
 ## 💼 Problema de negocio
 
 En organizaciones con múltiples unidades, los problemas de eficiencia suelen detectarse cuando:
@@ -36,15 +40,31 @@ Se integran **tres fuentes internas** con un total de **2.500 observaciones**, r
 
 Los datasets presentan **problemas reales de calidad** (tipos inconsistentes, valores faltantes y necesidad de integración), tratados explícitamente durante el proceso de preparación.
 
+### Variable objetivo
+
+Clasificación binaria del rendimiento financiero de cada unidad de negocio (*eficiente* / *en riesgo*), definida a partir de umbrales económicos construidos sobre indicadores financieros y operativos.
+
 ---
 
 ## 🧠 Enfoque analítico
 
 - Limpieza, validación e integración de datos  
-- *Feature engineering* con criterio económico  
-- **Cinco modelos supervisados** (baseline, interpretables y no lineales)  
-- **Análisis no supervisado** para reducción de dimensionalidad y segmentación  
-- Evaluación centrada en **detección temprana, robustez y generalización**, no solo en accuracy  
+- *Feature engineering* con criterio económico
+  
+### Aprendizaje supervisado
+Modelos utilizados:
+- Regresión logística (baseline e interpretabilidad)
+- Árbol de decisión
+- Random Forest
+- Support Vector Machine (SVM)
+
+### Aprendizaje no supervisado
+- Reducción de dimensionalidad mediante **PCA**
+- Segmentación de unidades de negocio mediante **K-Means**
+ 
+El análisis no supervisado se utiliza como herramienta exploratoria para identificar patrones latentes y segmentaciones estructurales complementarias al modelado predictivo supervisado.
+
+Evaluación centrada en **detección temprana, robustez y generalización**, no solo en accuracy  
 
 ---
 
@@ -71,6 +91,7 @@ La solución permite:
 ## 🖥️ Despliegue
 
 El modelo final se expone mediante una **aplicación interactiva en Streamlit**, orientada a usuarios no técnicos, que permite introducir indicadores financieros y obtener una **clasificación de riesgo clara y accionable**.
+La aplicación está pensada como apoyo al análisis financiero, no como sistema de decisión automática.
 
 ---
 
@@ -85,9 +106,9 @@ Modelado_Predictivo_Rendimiento_Financiero_Unidades_Negocio_ML/
 │ ├── train
 │ └── test
 │
-├── notebooks
+├── Notebooks
 ├── src
-├── models
+├── Models
 ├── app_streamlit
 ├── docs
 └── README.md
